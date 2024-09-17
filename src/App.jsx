@@ -4,7 +4,10 @@ import { io } from "socket.io-client";
 import { VscSend } from "react-icons/vsc";
 
 function App() {
-  const socket = useMemo(() => io("http://localhost:3000"), []);
+  const socket = useMemo(
+    () => io("https://web-socket-io-backend.vercel.app/"),
+    []
+  );
   const [message, setMessage] = useState("");
   const [incomingMessages, setIncomingMessages] = useState([]);
   const [outgoingMessages, setOutgoingMessages] = useState([]);
