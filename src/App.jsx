@@ -5,7 +5,7 @@ import { VscSend } from "react-icons/vsc";
 
 function App() {
   const socket = useMemo(
-    () => io("https://web-socket-io-backend.vercel.app/"),
+    () => io("https://web-socket-io-backend.vercel.app"),
     []
   );
   const [message, setMessage] = useState("");
@@ -29,6 +29,7 @@ function App() {
     event.preventDefault();
     if (message.trim() === "") {
       setShowToast(true); // Show toast if message is empty
+      setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
       return;
     }
     setShowToast(false);
